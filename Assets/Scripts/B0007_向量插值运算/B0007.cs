@@ -44,7 +44,10 @@ public class B0007 : MonoBehaviour
 
         #region 球形插值
 
-        this.transform.position = Vector3.Slerp(Target.transform.position + Vector3.forward * 10, Target.transform.position + Vector3.back * 10, _time);
+        //this.transform.position = Vector3.Slerp(Target.transform.position + Vector3.forward * 10, Target.transform.position + Vector3.back * 10, _time);
+
+        // 在Y轴方向上加一点向量，可以进行引导（模拟太阳东升西洛
+        this.transform.position = Vector3.Slerp(Vector3.right * 10, Vector3.left * 10 + Vector3.up * 0.1f, _time * 0.1f);
 
         this.transform.LookAt(Target.transform.position);
 
